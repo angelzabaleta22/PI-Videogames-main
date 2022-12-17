@@ -4,7 +4,6 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("videogame", {
-    //column1
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -14,14 +13,21 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    img: {
+    description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     released: {
       type: DataTypes.DATEONLY,
+      allowNull: false,
     },
-    Rating: {
-      type: DataTypes.DECIMAL,
+    rating: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    background_image: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   });
 };
