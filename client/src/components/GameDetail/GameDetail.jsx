@@ -41,7 +41,7 @@ const GameDetail = () => {
       dispatch(setLoading(true));
       dispatch(getAllVideogames());
       navigate("/home");
-      alert("Videogame Delete");
+      alert("Juego Eliminado Exitosamente");
     } else {
       alert(deleted.data.err);
     }
@@ -57,9 +57,11 @@ const GameDetail = () => {
           }}
         >
           <div className={css.top}>
-            <Link to="/home" className={css.back}>
-              Back
-            </Link>
+            <ul>
+              <Link to="/home" className={css.back}>
+                Atrás
+              </Link>
+            </ul>
 
             {checkIfValidUUID(videogame.id) ? (
               <button

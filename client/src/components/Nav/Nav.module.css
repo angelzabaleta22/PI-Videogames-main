@@ -82,7 +82,7 @@
 }
 
 .button:active {
-    color: rgb(253, 1, 1);
+    color: rgb(51, 253, 1);
 }
 
 .button:active:after {

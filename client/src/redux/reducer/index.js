@@ -12,7 +12,7 @@ import {
   GET_ALL_PLATFORMS,
   RESET_VIDEOGAME,
 } from "../actions/index";
-
+window.process = {};
 const initialState = {
   videogames: [],
   filtergames: [],
@@ -191,10 +191,8 @@ const rootReducer = (state = initialState, action) => {
             filterGenres: action.payload,
           };
       }
-    case ORDER_BY_NAME:
-      const ordergames =
-        action.payload === "asc"
-          ? state.filtergames.sort(function (a, b) {
+    //prettier-ignore
+    case ORDER_BY_NAME: const ordergames = action.payload === "asc" ? state.filtergames.sort(function (a, b) {
               if (a.name > b.name) {
                 return 1;
               }
@@ -212,17 +210,17 @@ const rootReducer = (state = initialState, action) => {
               }
               return 0;
             });
-      return {
-        ...state,
-        filtergames: ordergames,
-        currentPage: 1,
-      };
+     return console.log({
+       ...state,
+       filtergames: ordergames,
+       currentPage: 1,
+     });
     case SEARCH_GAME:
       return {
         ...state,
-        filtergames: action.payload,
+        filtergames: action.payload, // modificación aquí -action.payload-,
         currentPage: 1,
-        loading: false,
+        loading: true,
       };
 
     case ORDER_BY_RATING:

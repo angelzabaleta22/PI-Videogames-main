@@ -362,7 +362,13 @@ function CreateVideoGame() {
               )}
             </div>
 
-            <button type="submit">Crear Videojuego</button>
+            <button type="submit" className={css.button}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Crear Videojuego
+            </button>
           </div>
         </form>
       </div>

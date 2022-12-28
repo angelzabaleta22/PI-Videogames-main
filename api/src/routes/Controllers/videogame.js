@@ -77,7 +77,15 @@ module.exports = {
   async post(req, res) {
     // Crear videojuego en la base de datos
     //prettier-ignore
-    const { name, description, released, rating, genres, background_image, platforms } = req.body;
+    const {
+      name,
+      description,
+      released,
+      rating,
+      genres,
+      background_image,
+      platforms,
+    } = req.body;
     // Creamos dos nuevas listas que contienen sólo los ids de cada género y plataforma
     const genresId = genres.map((genre) => genre.id);
     const platformsId = platforms.map((platform) => platform.id);
