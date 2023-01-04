@@ -15,7 +15,7 @@ function Pagination({ videogamesPerPage, totalVideogame, currentPage }) {
   const handleClick = (number) => {
     dispatch(setCurrentPage(number));
   };
-  console.log(pageNumbers);
+
   return (
     <>
       {pageNumbers.length ? (

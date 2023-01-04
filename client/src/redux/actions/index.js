@@ -140,9 +140,10 @@ export const createVideoGame = (videogame) => {
   };
 };
 
-export const resetVideogame = () => {
+export const resetVideogame = (clear) => {
   return {
     type: RESET_VIDEOGAME,
+    payload: clear,
   };
 };
 

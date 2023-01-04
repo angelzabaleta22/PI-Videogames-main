@@ -12,7 +12,6 @@ import {
   GET_ALL_PLATFORMS,
   RESET_VIDEOGAME,
 } from "../actions/index";
-window.process = {};
 const initialState = {
   videogames: [],
   filtergames: [],
@@ -192,7 +191,9 @@ const rootReducer = (state = initialState, action) => {
           };
       }
     //prettier-ignore
-    case ORDER_BY_NAME: const ordergames = action.payload === "asc" ? state.filtergames.sort(function (a, b) {
+    case ORDER_BY_NAME: const ordergames = 
+          
+     action.payload === "asc" ? state.filtergames.sort(function (a, b) {
               if (a.name > b.name) {
                 return 1;
               }
@@ -210,17 +211,18 @@ const rootReducer = (state = initialState, action) => {
               }
               return 0;
             });
-     return console.log({
-       ...state,
-       filtergames: ordergames,
-       currentPage: 1,
-     });
+              return { 
+                ...state,
+                filtergames: ordergames,
+                currentPage: 1,
+              };
+
     case SEARCH_GAME:
       return {
         ...state,
-        filtergames: action.payload, // modificación aquí -action.payload-,
+        filtergames: action.payload,
         currentPage: 1,
-        loading: true,
+        loading: false,
       };
 
     case ORDER_BY_RATING:
@@ -258,10 +260,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         platforms: action.payload,
       };
+
     case RESET_VIDEOGAME: {
       return {
         ...state,
-        videogame: [],
       };
     }
     default:

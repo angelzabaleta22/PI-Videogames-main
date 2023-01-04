@@ -114,12 +114,12 @@ input[type="range"] {
 }
 
 .button:hover {
-    color: rgb(232, 0, 186);
+    color: rgb(232, 0, 0);
 }
 
 .button span {
     position: absolute;
-    background: rgb(232, 0, 186);
+    background: rgb(232,0,0);
     transition: .5s;
 }
 

@@ -10,7 +10,8 @@ import css from "./CreateVideoGame.module.css";
 import { useNavigate } from "react-router-dom";
 
 const validate = (input, videogame) => {
-  const validText = /^[A-za-z0-9]+[A-za-z0-9-,;!?:.&\s]+$/;
+  const validText =
+    /^[A-za-z0-9]+[A-za-z0-9-,;!?:.&\s]+[a-zA-Z\u00C0-\u017F\s]+$/;
   const validReleased = /^[0-9]{4}\b-[0-9]{2}\b-[0-9]{2}$/;
 
   switch (input) {

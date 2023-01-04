@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import css from "./Filter.module.css";
 import { useDispatch, useSelector } from "react-redux";
-
 import {
   orderByName,
   orderByRating,
@@ -10,23 +9,22 @@ import {
   sortBySource,
 } from "../../redux/actions";
 
-function Filter() {
+function Filter({ order, setOrder }) {
   const [search, setSearch] = useState("");
-  const [orders, setOrder] = useState("");
   const filterSource = useSelector((state) => state.filterSource);
 
   const dispatch = useDispatch();
 
-  const handleOrderByNam = (event) => {
+  const handleOrderByName = (event) => {
     const order = event.target.value;
     dispatch(orderByName(order));
-    setOrder(`${event.target.value}`);
-    setOrder(orders);
+    setOrder(event.target.value);
   };
 
-  const handleOrderByRatin = (event) => {
+  const handleOrderByRating = (event) => {
     const order = event.target.value;
     dispatch(orderByRating(order));
+    setOrder(event.target.value);
   };
 
   const handleSortBySource = (event) => {
@@ -51,7 +49,7 @@ function Filter() {
       <div className={css.contentSearch}>
         <input
           type="text"
-          placeholder="Search videoGame"
+          placeholder="Buscar Videojuego"
           name="search"
           id=""
           onChange={handleSearch}
@@ -73,24 +71,30 @@ function Filter() {
           className={css.selectSource}
           value={filterSource}
         >
-          <option value="ALL">Filtrar Por Fuente</option>
+          <option>Buscar por Fuente</option>
           <option value="ALL">Todo</option>
           <option value="DB">Base de Datos</option>
           <option value="API">API</option>
         </select>
 
-        {
-          <select name="" id="" onChange={handleOrderByNam}>
-            <option value="ALL">Ordernar Alfabéticamente</option>
-            <option value="asc">A-Z</option>
-            <option value="desc">Z-A</option>
-          </select>
-        }
-        <select name="" id="" onChange={handleOrderByRatin}>
-          <option value="ALL">Orderar Por Rating</option>
+        <select name="" id="" onChange={handleOrderByName}>
+          <option>Ordernar Alfabéticamente</option>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
+        </select>
+
+        <select name="" id="" onChange={handleOrderByRating}>
+          <option>Orderar Por Rating</option>
           <option value="min">min</option>
           <option value="max">max</option>
         </select>
+        <button
+          type="submit"
+          onClick={handleSearchSubmit}
+          className={css.clear}
+        >
+          Limpiar Filtros
+        </button>
       </div>
     </div>
   );
