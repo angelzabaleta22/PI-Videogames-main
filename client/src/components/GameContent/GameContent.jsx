@@ -12,6 +12,7 @@ export default function GameContent() {
   const currentVideogames = useSelector((state) => state.filtergames);
   const currentPage = useSelector((state) => state.currentPage);
   const videogamesPerPage = useSelector((state) => state.videogamesPerPage);
+  /*  console.log(currentPage); */
 
   const indexOfLastVideogame = currentPage * videogamesPerPage;
   const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;
@@ -43,6 +44,7 @@ export default function GameContent() {
               key={videogame.id}
               id={videogame.id}
               name={videogame.name}
+              rating={videogame.rating}
               background_image={
                 videogame.background_image
                   ? videogame.background_image

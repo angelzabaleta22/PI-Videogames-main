@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import css from "./GameCard.module.css";
 
-function GameCard({ id, name, background_image, genres }) {
+function GameCard({ id, name, background_image, genres, rating }) {
   return (
     <div className={css.card}>
       <div className={css.cardImg}>
@@ -13,7 +13,7 @@ function GameCard({ id, name, background_image, genres }) {
           <Link to={`/videogame/${id}`}>{name}</Link>
         </div>
         <div className={css.genres}>
-          <div className={css.genresTitle}>Genero:</div>
+          <div className={css.genresTitle}>Género:</div>
           <div>
             {genres
               ? genres.map((genre) => (
@@ -21,6 +21,10 @@ function GameCard({ id, name, background_image, genres }) {
                 ))
               : ""}
           </div>
+        </div>
+        <div className={css.rating}>
+          <div className={css.genresTitle}>Rating:</div>
+          <span>{rating}</span>
         </div>
       </div>
     </div>

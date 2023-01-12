@@ -39,11 +39,25 @@
 
 .genres span {
   color: #fff;
-
+  
   text-decoration: underline hsla(0, 0%, 100%, 0.4);
 }
 
 .genresTitle {
   margin-right: 6px;
   color: hsla(0, 0%, 100%, 0.4);
+}
+
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating span {
+  position: relative;
+    left: -240px;
+  color: #fff;
+
+  text-decoration: underline hsla(0, 0%, 100%, 0.4);
 }

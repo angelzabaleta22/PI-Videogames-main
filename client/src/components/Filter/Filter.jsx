@@ -78,23 +78,16 @@ function Filter({ order, setOrder }) {
         </select>
 
         <select name="" id="" onChange={handleOrderByName}>
-          <option>Ordernar Alfabéticamente</option>
+          <option value="ALL">Ordernar Alfabéticamente</option>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
         </select>
 
         <select name="" id="" onChange={handleOrderByRating}>
-          <option>Orderar Por Rating</option>
+          <option value="ALL">Orderar Por Rating</option>
           <option value="min">min</option>
           <option value="max">max</option>
         </select>
-        <button
-          type="submit"
-          onClick={handleSearchSubmit}
-          className={css.clear}
-        >
-          Limpiar Filtros
-        </button>
       </div>
     </div>
   );

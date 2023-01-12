@@ -190,10 +190,11 @@ const rootReducer = (state = initialState, action) => {
             filterGenres: action.payload,
           };
       }
-    //prettier-ignore
-    case ORDER_BY_NAME: const ordergames = 
-          
-     action.payload === "asc" ? state.filtergames.sort(function (a, b) {
+
+    case ORDER_BY_NAME:
+      const ordergames =
+        action.payload === "asc"
+          ? state.filtergames.sort((a, b) => {
               if (a.name > b.name) {
                 return 1;
               }
@@ -211,11 +212,12 @@ const rootReducer = (state = initialState, action) => {
               }
               return 0;
             });
-              return { 
-                ...state,
-                filtergames: ordergames,
-                currentPage: 1,
-              };
+
+      return {
+        ...state,
+        filtergames: ordergames,
+        currentPage: 1,
+      };
 
     case SEARCH_GAME:
       return {
@@ -248,7 +250,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         videogame: action.payload,
-        loading: true,
+        loading: false,
       };
     case GET_ALL_GENRES:
       return {

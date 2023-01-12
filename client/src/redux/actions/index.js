@@ -55,6 +55,13 @@ export const sortByGenre = (genre) => {
   };
 };
 
+export const orderByName = (order) => {
+  return {
+    type: ORDER_BY_NAME,
+    payload: order,
+  };
+};
+
 export const searchGame = (search) => {
   return async function (dispatch) {
     try {
@@ -66,14 +73,9 @@ export const searchGame = (search) => {
         type: SEARCH_GAME,
         payload: result.data,
       });
-    } catch (error) {}
-  };
-};
-
-export const orderByName = (order) => {
-  return {
-    type: ORDER_BY_NAME,
-    payload: order,
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -140,10 +142,9 @@ export const createVideoGame = (videogame) => {
   };
 };
 
-export const resetVideogame = (clear) => {
+export const resetVideogame = () => {
   return {
     type: RESET_VIDEOGAME,
-    payload: clear,
   };
 };
 
